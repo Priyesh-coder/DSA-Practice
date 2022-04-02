@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-
+//Length of the longest alternating even odd subarray
 int evenodd(int arr[], int n){
     int res = 1;
     int count = 1;
