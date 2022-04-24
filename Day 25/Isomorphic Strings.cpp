@@ -1,3 +1,4 @@
+// Method ---- 1
 class Solution
 {
 public:
@@ -21,4 +22,21 @@ public:
   }
   return true;
  }
+};
+
+// Method ---- 2
+
+class Solution {
+public:
+    bool isIsomorphic(string s, string t) {
+        char str_s[128] = {};
+        char str_t[128] = {};
+        
+        for(int i=0; i<s.size(); i++){
+            if(str_s[s[i]] != str_t[t[i]]) return false;
+            str_s[s[i]] = i+1;
+            str_t[t[i]] = i+1;
+        }
+        return true;
+    }
 };
