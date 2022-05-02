@@ -11,20 +11,17 @@
  */
 class Solution {
 public:
-    int ans, num=0;
-    void find(TreeNode *root,int k){
+    void find(TreeNode *root,vector<int> &ans){
         if(!root) return;
         
-        find(root->left,k);
-        num++;
-        
-        if(num == k) ans = root->val;
-        
-        find(root->right, k);
+        find(root->left,ans);
+        ans.push_back(root->val);
+        find(root->right,ans);
     }
     
     int kthSmallest(TreeNode* root, int k) {
-       find(root,k);
-        return ans;
+        vector<int>ans;
+        find(root,ans);
+        return ans[k-1];
     }
 };
