@@ -10,18 +10,20 @@
  * };
  */
 class Solution {
-public:
-    void find(TreeNode *root,vector<int> &ans){
-        if(!root) return;
-        
-        find(root->left,ans);
-        ans.push_back(root->val);
-        find(root->right,ans);
-    }
-    
-    int kthSmallest(TreeNode* root, int k) {
+  public:
+  void find(Node* root, vector<int>& ans){
+      if(!root) return;
+      
+      find(root->left, ans);
+      ans.push_back(root->data);
+      find(root->right, ans);
+  }
+    // Return the Kth smallest element in the given BST
+    int KthSmallestElement(Node *root, int K) {
+        // add code here.
         vector<int>ans;
         find(root,ans);
-        return ans[k-1];
+        if(K>ans.size()) return -1;
+        else return ans[K-1];
     }
 };
