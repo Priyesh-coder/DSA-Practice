@@ -21,6 +21,7 @@ public:
         
         solve(root->left,ans,curr,targetSum);
         solve(root->right,ans,curr,targetSum);
+        curr.first.pop_back();
 
     }
     vector<vector<int>> pathSum(TreeNode* root, int targetSum) {
