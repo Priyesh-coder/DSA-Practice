@@ -1,3 +1,32 @@
+// GFG Problem....
+class Solution
+{
+    public:
+    //Function to calculate the span of stockâ€™s price for all n days.
+    vector <int> calculateSpan(int price[], int n)
+    {
+       // Your code here
+       vector<int>v;
+       stack<pair<int,int>>st;
+        for(int i=0; i<n; i++){
+            while(!st.empty() && st.top().first <= price[i]){
+                st.pop();
+            }
+            if(st.empty())v.push_back(-1);
+            else v.push_back(st.top().second);
+            st.push({price[i],i});
+        }
+    
+    
+        for (int i = 0; i < n; i++){
+            v[i] = i-v[i];
+        }
+        return v;
+    }
+};
+
+
+// Same problem in online ide...
 #include <bits/stdc++.h> 
 using namespace std;
 
